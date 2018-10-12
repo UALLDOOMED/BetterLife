@@ -1,0 +1,58 @@
+﻿@model IEnumerable<FIT5032_BetterLife.Models.Comment>
+
+@{
+    ViewBag.Title = "Comments Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="comment">
+<h2>Message Board</h2>
+<h3>We need your suggestion to improve our website!</h3>
+@if (User.Identity.IsAuthenticated)
+        {
+            <a class="btn btn-primary" href="@Url.Action("Create", "Comments")">Create New Comments</a>
+}
+    <table class="table" style="background: hsla(0,0%,100%,.5);border-radius: 10px;">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            @if (User.IsInRole("admin"))
+            {
+            <td>
+                <a href="@Url.Action("Edit", new { id = item.Id })"><span class="glyphicon glyphicon-pencil">Edit</span></a> |
+                <a href="@Url.Action("Details", new { id = item.Id })"><span class="glyphicon glyphicon-search">Details</span></a> |
+                <a href="@Url.Action("Delete", new { id = item.Id })"><span class="glyphicon glyphicon-trash">Delete</span></a>
+            </td>
+            }
+        </tr>
+        }
+
+    </table>
+    </div>
+<style>
+    .btn {
+        background-color: transparent;
+        border-color: white
+    }
+    </style>
