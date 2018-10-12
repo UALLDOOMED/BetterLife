@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<sitemanifest>
-  <IisApp path="C:\Users\44931\source\repos\FIT5032_Assignment-BetterLife\FIT5032_BetterLife\obj\Release\Package\PackageTmp" />
-  <setAcl path="C:\Users\44931\source\repos\FIT5032_Assignment-BetterLife\FIT5032_BetterLife\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
-  <setAcl path="C:\Users\44931\source\repos\FIT5032_Assignment-BetterLife\FIT5032_BetterLife\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
-  <setAcl path="C:\Users\44931\source\repos\FIT5032_Assignment-BetterLife\FIT5032_BetterLife\obj\Release\Package\PackageTmp\App_Data" setAclResourceType="Directory" setAclAccess="Write" />
-</sitemanifest>
