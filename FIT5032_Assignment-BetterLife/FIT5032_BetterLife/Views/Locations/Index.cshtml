@@ -1,0 +1,71 @@
+﻿@model IEnumerable<FIT5032_BetterLife.Models.Location>
+
+@{
+    ViewBag.Title = "Location";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="height:40px"></div>
+<h1>Interesting Locations</h1>
+<div id="map" style="height:300px"></div>
+<br />
+@if (User.IsInRole("admin"))
+{
+
+    <a class="btn btn-primary"href="@Url.Action("Create","Locations")">Create New Locations</a>
+}
+
+<table class="table" style="background: hsla(0,0%,100%,.5);border-radius: 10px;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Latitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Longitude)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="coordinates">
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td class="description">
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td class="latitude">
+                @Html.DisplayFor(modelItem => item.Latitude)
+            </td>
+            <td class="longitude">
+                @Html.DisplayFor(modelItem => item.Longitude)
+            </td>
+            
+                @if (User.IsInRole("admin"))
+                {
+            <td>
+                <a href="@Url.Action("Edit", new { id = item.Id })"><span class="glyphicon glyphicon-pencil">Edit</span></a> |
+                <a href="@Url.Action("Details", new { id = item.Id })"><span class="glyphicon glyphicon-search">Details</span></a> |
+                <a href="@Url.Action("Delete", new { id = item.Id })"><span class="glyphicon glyphicon-trash">Delete</span></a>
+            </td>
+                }
+        </tr>
+    }
+
+</table>
+<style>
+    .btn {
+        background-color: transparent;
+        border-color: white
+    }
+</style>
+@section Scripts {
+    @Scripts.Render("~/bundles/mapbox")
+}
