@@ -5,6 +5,7 @@ namespace FIT5032_BetterLife.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Web.Mvc;
 
     [Table("Comment")]
     public partial class Comment
@@ -15,6 +16,7 @@ namespace FIT5032_BetterLife.Models
         public string Title { get; set; }
 
         [Required]
+        [AllowHtml]
         public string Content { get; set; }
 
         [Required]

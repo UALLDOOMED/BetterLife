@@ -35,7 +35,8 @@
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Content)
+                @Html.Raw(item.Content)
+             @*   @Html.DisplayFor(modelItem => item.Content)*@
             </td>
             @if (User.IsInRole("admin"))
             {
