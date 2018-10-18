@@ -93,8 +93,13 @@ namespace FIT5032_BetterLife.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public ActionResult Edit([Bind(Include = "Id,Title,Content,UserId,UserName")] Comment comment)
         {
+            comment.UserId = User.Identity.GetUserId();
+            comment.UserName = User.Identity.GetUserName();
+            ModelState.Clear();
+            TryValidateModel(comment);
             if (ModelState.IsValid)
             {
                 db.Entry(comment).State = EntityState.Modified;
