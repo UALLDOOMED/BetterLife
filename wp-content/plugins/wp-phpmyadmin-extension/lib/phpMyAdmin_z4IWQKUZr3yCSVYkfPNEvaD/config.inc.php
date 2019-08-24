@@ -9,7 +9,7 @@ $cfg['Servers'][$i]['host'] 			= 'localhost:3306';
 $cfg['Servers'][$i]['connect_type'] 	= 'tcp';
 $cfg['Servers'][$i]['socket'] 			= '';
 $cfg['Servers'][$i]['AllowNoPassword']	= false;   // true/false
-$cfg['blowfish_secret']					= 'eAVa\',loE[s%BI%m2;@E:_-&r=(d^\'h,' ;  // i.e. '$b~`lnkwm>^^jNUEE;(4xB$L\'b?."\'o9' 
+$cfg['blowfish_secret']					= '\"YBgMc>~v2PNod!^qSxMn]azo2BdvK21' ;  // i.e. '$b~`lnkwm>^^jNUEE;(4xB$L\'b?."\'o9' 
 $cfg['DefaultLang']						= 'en';		// 'en'
 $cfg['Servers'][$i]['only_db']			= [file_get_contents(__DIR__."/_session_temp_db_name_".$_SERVER["HTTP_HOST"].".php")] ;    //i.e. array('db1', 'db2') Show only listed databases
 $cfg['PmaAbsoluteUri'] 					= 'http://www.climatecleverkids.com/wp-content/plugins/wp-phpmyadmin-extension/lib/phpMyAdmin_z4IWQKUZr3yCSVYkfPNEvaD/';			//used, if different directory by htaccess ; or parse_url($GLOBALS['PMA_PHP_SELF']);
@@ -42,5 +42,5 @@ $cfg['FirstLevelNavigationItems']	= 200;	// same
 //$cfg['ArbitraryServerRegexp']		= 'Restrict login to MySQL serverDocumentation Restricts the MySQL servers the user can enter when a login to an arbitrary MySQL server is enabled by matching the IP or hostname of the MySQL server to the given regular expression.';
 
 //disable errors if needed
-$cfg['SendErrorReports'] 			= 'never';
+$cfg["SendErrorReports"] = 'ask';
 ?>
